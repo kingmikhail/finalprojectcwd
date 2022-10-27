@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Sofia" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Charmonman" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Clicker Script" rel="stylesheet">
+<style>
+* {
+  box-sizing: border-box;
+}
+body {
+  background-image: url("Fix01.jpg");
+  background-repeat: round;
+  background-size: auto;
+  background-position: auto;
+  background-attachment: fixed;
+  border: 20px outset black;
+  padding: 18px;
+  font-family: Sofia, Charmonman;
+  font-size: 24px;
+  text-align: center;
+  display: flex;	
+}
+.SiempreSamboan {
+  max-width: 1000px;
+  margin: auto;
+}
+h4 {
+  border: 5px outset white;
+  font-size: 24px;
+  background-color: black;
+  word-break: break-all;
+  text-shadow: 0 0 10px #FF0000, 0 0 20px #0000FF;
+  color: white;
+}
+p1 {
+  text-shadow: 0 0 10px #000000, 0 0 20px #ff6600; 
+  color: black;
+  text-align: center;
+  letter-spacing: -2px;
+}
+p {
+  border: 5px outset white;
+  outline-color: gray;
+  outline-width: 15px;
+  background-color: black;
+  padding: 15px;
+  text-shadow: 0 0 10px #FF0000, 0 0 20px #0000FF;
+  color: white;
+}
+.row {
+  margin: 10px -26px;
+}
+.row,
+.row > .column {
+  padding: 10px;
+}
+.column {
+  float: left;
+  width: 50%; 
+  display: flex;
+}
+.row:after {
+  content: "";
+  display: flex;
+  clear: both;
+}
+.content {
+  background-color: sky blue;
+  padding: 35px;
+}
+.show {
+  display: block;
+}
+.btn {
+  border: 10px double black;
+  font-family: Charmonman;
+  font-size: 16px;
+  color: white;
+  font-weight: bold;
+  text-shadow: 0 0 400px #000000, 0 0 20px #000000;  
+  outline: red;
+  padding: 24px 12.8px;
+  background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet, red);
+  animation:slidebg 12s linear infinite;
+}
+@keyframes slidebg {
+to {
+    background-position: 35vw;
+}
+  margin: auto;
+  cursor: pointer;
+  border: 10px double white;
+}
+.btn:hover {
+  background-color: none;
+}
+.btn:active {
+  background-color: none;
+  color: red;
+}
+::-webkit-scrollbar {
+  width: 20px;
+}
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+} 
+::-webkit-scrollbar-thumb {
+  background: red; 
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #b30000; 
+}
+@property --rotate {
+  syntax: "<angle>";
+  initial-value: 132deg;
+  inherits: false;
+}
+:root {
+  --card-height: 400px;
+  --card-width: calc(var(--card-height) / 1.5);
+  --hue: 223;
+	--white: hsl(var(--hue),10%,100%);
+	--lt-gray: hsl(var(--hue),10%,95%);
+	--gray1: hsl(var(--hue),10%,90%);
+	--gray2: hsl(var(--hue),10%,80%);
+	--gray7: hsl(var(--hue),10%,30%);
+	--gray9: hsl(var(--hue),10%,10%);
+	--primary: hsl(var(--hue),90%,55%);
+	--trans-dur: 0.3s;
+	font-size: calc(16px + (24 - 16) * (100vw - 320px) / (1280 - 320));
+}
+.cardssg {
+  background: #191c29;
+  width: var(--card-width);
+  height: var(--card-height);
+  padding: 3px;
+  position: relative;
+  border-radius: 6px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  font-size: 24px;
+  text-shadow: 0 0 10px #000000, 0 0 20px #0000FF;
+  color: rgb(88 199 250 / 0%);
+  cursor: pointer;
+  font-family: Charmonman;
+  position: auto;
+  width: 100%;
+  height: 260px;
+}
+.cardssg:hover {
+  color: rgb(88 199 250 / 100%);
+  transition: color 1s;
+}
+.cardssg:hover:before, .cardssg:hover:after {
+  animation: none;
+  opacity: 0;
+}
+.cardssg::before {
+  content: "";
+  width: 104%;
+  height: 102%;
+  border-radius: 15px;
+  background-image: linear-gradient(
+    var(--rotate)
+    , #5ddcff, #3c67e3 43%, #4e00c2);
+    position: absolute;
+    z-index: -1;
+    top: -1%;
+    left: -2%;
+    animation: spin 2.5s linear infinite;
+}
+.cardssg::after {
+  position: absolute;
+  content: "";
+  top: calc(var(--card-height) / 6);
+  left: 0;
+  right: 0;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  transform: scale(0.8);
+  filter: blur(calc(var(--card-height) / 6));
+  background-image: linear-gradient(
+    var(--rotate)
+    , #5ddcff, #3c67e3 43%, #4e00c2);
+    opacity: 1;
+  transition: opacity .5s;
+  animation: spin 2.5s linear infinite;
+}
+@keyframes spin {
+  0% {
+    --rotate: 0deg;
+  }
+  100% {
+    --rotate: 360deg;
+  }
+}
+.fr {
+	animation: fade-slide-in 0.6s ease-out;
+	padding: 0 1.5em;
+	max-width: 20em;
+}
+.fr__face {
+	--face-hue1: 60;
+	--face-hue2: 30;
+	background-image:
+		linear-gradient(
+			135deg,
+			hsl(var(--face-hue1),90%,55%),
+			hsl(var(--face-hue2),90%,45%)	);
+	border-radius: 50%;
+	box-shadow: 0 0.5em 0.75em hsla(var(--face-hue2),90%,55%,0.3);
+	margin: 0 auto 2em;
+	position: relative;
+	width: 3em;
+	height: 3em;
+}
+.fr__face-right-eye,
+.fr__face-left-eye,
+.fr__face-mouth-lower,
+.fr__face-mouth-upper {
+	position: absolute;
+	transition:
+		background-color var(--trans-dur),
+		box-shadow var(--trans-dur),
+		color var(--trans-dur);
+}
+.fr__face-right-eye,
+.fr__face-left-eye {
+	background-color: var(--white);
+	border-radius: 50%;
+	top: 0.75em;
+	width: 0.6em;
+	height: 0.6em;
+}
+.fr__face-right-eye {
+	--delay-right: 0s;
+	animation: right-eye 1s var(--delay-right) linear paused;
+	clip-path: polygon(0 75%,100% 0,100% 100%,0 100%);
+	left: 0.6em;
+}
+.fr__face-left-eye {
+	--delay-left: 0s;
+	animation: left-eye 1s var(--delay-left) linear paused;
+	clip-path: polygon(0 0,100% 75%,100% 100%,0 100%);
+	right: 0.6em;
+}
+.fr__face-mouth-lower,
+.fr__face-mouth-upper {
+	color: var(--white);
+	top: 1.75em;
+	left: 0.75em;
+	width: 1.5em;
+	height: 0.75em;
+}
+.fr__face-mouth-lower {
+	--delay-mouth-lower: 0s;
+	animation: mouth-lower 1s var(--delay-mouth-lower) linear paused;
+	border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+	box-shadow: 0 0.125em 0 inset;
+}
+.fr__face-mouth-upper {
+	--delay-mouth-upper: 0s;
+	animation: mouth-upper 1s var(--delay-mouth-upper) linear paused;
+	border-radius: 0 0 50% 50% / 0 0 100% 100%;
+	box-shadow: 0 -0.125em 0 inset;
+}
+.fr__label {
+	display: block;
+	margin-bottom: 1.5em;
+	text-align: center;
+}
+.fr__input {
+	--input-hue: 60;
+	--percent: 50%;
+	background-color: var(--gray1);
+	background-image: linear-gradient(hsl(var(--input-hue),90%,45%),hsl(var(--input-hue),90%,45%));
+	background-size: var(--percent) 100%;
+	background-repeat: no-repeat;
+	border-radius: 0.25em;
+	display: block;
+	margin: 0.5em auto;
+	width: 100%;
+	max-width: 160px;
+	height: 0.5em;
+	transition: background-color var(--trans-dur);
+	-webkit-appearance: none;
+	appearance: none;
+	-webkit-tap-highlight-color: transparent;
+}
+.fr__input:focus {
+	outline: transparent;
+}
+.fr__input::-webkit-slider-thumb {
+	background-color: var(--white);
+	border: 0;
+	border-radius: 50%;
+	box-shadow: 0 0.125empx 0.5em hsl(0,0%,0%,0.3);
+	width: 1.5em;
+	height: 1.5em;
+	transition: background-color 0.15s linear;
+	-webkit-appearance: none;
+	appearance: none;
+}
+.fr__input:focus::-webkit-slider-thumb,
+.fr__input::-webkit-slider-thumb:hover {
+	background-color: var(--lt-gray);
+}
+.fr__input::-moz-range-thumb {
+	background-color: var(--white);
+	border: 0;
+	border-radius: 50%;
+	box-shadow: 0 0.125em 0.5em hsl(0,0%,0%,0.3);
+	width: 1.5em;
+	height: 1.5em;
+	transition: background-color 0.15s linear;
+}
+.fr__input:focus::-moz-range-thumb,
+.fr__input::-moz-range-thumb:hover {
+	background-color: var(--lt-gray);
+}
+@supports selector(:focus-visible) {
+	.fr__input:focus::-webkit-slider-thumb {
+		background-color: var(--white);
+	}
+	.fr__input:focus-visible::-webkit-slider-thumb,
+	.fr__input::-webkit-slider-thumb:hover {
+		background-color: var(--lt-gray);
+	}
+	.fr__input:focus::-moz-range-thumb {
+		background-color: var(--white);
+	}
+	.fr__input:focus-visible::-moz-range-thumb,
+	.fr__input::-moz-range-thumb:hover {
+		background-color: var(--lt-gray);
+	}
+}
+@media (prefers-color-scheme: dark) {
+	body {
+		background-color: var(--gray9);
+		color: var(--gray1);
+	}
+	.fr__face-right-eye,
+	.fr__face-left-eye {
+		background-color: var(--gray9);
+	}
+	.fr__face-mouth-lower,
+	.fr__face-mouth-upper {
+		color: var(--gray9);
+	}
+	.fr__input {
+		background-color: var(--gray7);
+	}
+}
+@keyframes fade-slide-in {
+	from,
+	16.67% {
+		opacity: 0;
+		transform: translateY(25%);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+@keyframes right-eye {
+	from { clip-path: polygon(0 75%,100% 0,100% 100%,0 100%); }
+	50%, to { clip-path: polygon(0 0,100% 0,100% 100%,0 100%); }
+}
+@keyframes left-eye {
+	from { clip-path: polygon(0 0,100% 75%,100% 100%,0 100%); }
+	50%, to { clip-path: polygon(0 0,100% 0,100% 100%,0 100%); }
+}
+@keyframes mouth-lower {
+	from {
+		border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+		top: 1.75em;
+		height: 0.75em;
+		visibility: visible;
+	}
+	40% {
+		border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+		top: 1.95em;
+		height: 0.25em;
+		visibility: visible;
+	}
+	50%,
+	to {
+		border-radius: 0;
+		top: 2em;
+		height: 0.125em;
+		visibility: hidden;
+	}
+}
+@keyframes mouth-upper {
+	from,
+	50% {
+		border-radius: 0;
+		box-shadow: 0 -0.125em 0 inset;
+		top: 2em;
+		height: 0.125em;
+		visibility: hidden;
+	}
+	62.5% {
+		border-radius: 0 0 50% 50% / 0 0 100% 100%;
+		box-shadow: 0 -0.125em 0 inset;
+		top: 1.95em;
+		height: 0.25em;
+		visibility: visible;
+	}
+	75% {
+		border-radius: 0 0 50% 50% / 0 0 100% 100%;
+		box-shadow: 0 -0.125em 0 inset;
+		top: 1.825em;
+		height: 0.5em;
+		visibility: visible;
+	}
+	to {
+		border-radius: 0 0 50% 50% / 0 0 100% 100%;
+		box-shadow: 0 -0.8em 0 inset;
+		top: 1.75em;
+		height: 0.75em;
+		visibility: visible;
+	}
+}
+.label {
+  color: white;
+  padding: 8px;
+  font-family: Sofia;
+  border: 15px double white;
+  text-align: left;
+}
+.emoji {
+background-color: black;
+} 
+</style>
+</head>
+<body> 
+<!-- Main Intro Siempre Samboan Group-->
+<div class="SiempreSamboan">
+<p1 style="font-size: 100px; color: white; font-family: Charmonman; border: 30px double white; padding: 4px; background-color: black;"><strong>Siempre</strong></p1>
+<p1 style="font-size: 100px; color: black; font-family: Charmonman; border: 30px double white; padding: 6px; background-color: orange;"><strong>Samboan</strong></p1>
+<p1 style="font-size: 80px; color: white; font-family: Charmonman; border: 30px double white; padding: 6px; background-color: black;"><strong>Mikhail Andrei Geyrozaga</strong></p1>
+<p1 style="font-size: 80px; color: black; font-family: Charmonman; border: 30px double white; padding: 6px; background-color: orange;"><strong>Clifford June Puza</strong></p1>
+<p1 style="font-size: 80px; color: white; font-family: Charmonman; border: 30px double white; padding: 4px; background-color: black;"><strong>PORTFOLIO</strong></p1>
+<br><br><br><br><br><br>
+<div class="cardssg">
+  "Personal Portfolio Created By Mikhail Andrei & Clifford June"
+  "ABOUT, EXPERIENCE & EDUCATION"
+  "Come & Take A Look"
+</div>
+<p1>"(Pointer/Cursor)"</p1>
+<br><br><br>
+
+<div id="myBtnContainer">
+  <button class="btn active" onclick="filterSelection('all')"><strong>SHOW ALL</strong></button>
+  <button class="btn" onclick="filterSelection('Personal Statement')"><strong>PERSONAL STATEMENT</strong></button>
+  <button class="btn" onclick="filterSelection('Technical Skills')"><strong>TECHNICAL SKILLS</strong></button>
+  <button class="btn" onclick="filterSelection('Personal Skills')"><strong>PERSONAL SKILLS</strong></button>
+  <button class="btn" onclick="filterSelection('Reference')"><strong>REFERENCE</strong></button>
+</div>
+<ssghover>
+
+<!-- Portfolio Grid Siempre Samboan Group, Beg-->
+
+<div class="row">
+  <div class="column Personal Statement">
+    <div class="content">
+      <img src="Mikhail02.jpg" alt="Personal Statement" style="width:100%">
+      <h4>Hi! I'm Mikhail Andrei - Personal Statement</h4>
+	  <p>"Employed LGU Samboan."</p>
+      <p>“To employ my knowledge and experience with the intention of securing a professional career with opportunity for challenges and career advancement, while gaining.”</p>
+	</div>
+  </div>
+  <div class="column Personal Statement">
+    <div class="content">
+    <img src="Clifford01.jpg" alt="Personal Statement" style="width:100%">
+      <h4>Hi! I'm Clifford June - Personal Statement</h4>
+	  <p>"Employed LGU Samboan."</p>
+      <p>“Looking for a challenging role in a reputable organization to utilize my technical, database, and management skills for the growth of the organization as well as to enhance my knowledge about new and emerging trends in the IT sector.”</p>
+    </div>
+  </div>
+  <div class="column Technical Skills">
+    <div class="content">
+    <img src="Accounting01.jpg" alt="Technical Skills" style="width:100%">
+      <h4>Mikhail Andrei - Technical Skills</h4>
+      <p>Standards of Accounting</p>
+	  <p>General Business Knowledge</p>
+	  <p>Network Troubleshooting</p>
+	  <p>MS Office (Word, Excel, Powerpoint, Internet Applications)</p>	
+    </div>
+  </div> 
+  <div class="column Technical Skills">
+    <div class="content">
+      <img src="IT01.jpg" alt="Technical Skills" style="width:100%">
+      <h4>Clifford June - Technical Skills</h4>
+      <p>Network Troubleshooting, Computer Hardware/Software Knowledge</p>
+	  <p>Programming (Java, C+, Visual Basic)</p>
+	  <p>Adobe Creative Suite Photoshop, Networks & OS</p>
+	  <p>MS Office (Word, Excel, Powerpoint, Internet Applications)</p>
+    </div>
+  </div>
+  <div class="column Personal Skills">
+    <div class="content">
+    <img src="Accounting02.jpg" alt="Personal Skills" style="width:100%">
+      <h4>Mikhail Andrei - Personal Skills</h4>
+      <p>Strong Written & Oral Communication</p>
+	  <p>Analytical & Problem Solving Skills</p>
+	  <p>Time Management</p>
+	  <p>Critical Thinking</p>
+    </div>
+  </div>
+  <div class="column Personal Skills">
+    <div class="content">
+    <img src="IT02.jpg" alt="Personal Skills" style="width:100%">
+      <h4>Clifford June - Personal Skills</h4>
+      <p>Strong Written & Oral Communication</p>
+	  <p>Technical Skills Necessary to Work Within Technical Support</p>
+	  <p>Maintenance & Development</p>
+	  <p>Motivation & Problem Solving</p>	  
+    </div>
+  </div>
+  <div class="column Reference">
+    <div class="content">
+      <img src="References04.jpg" alt="Reference" style="width:100%">
+      <h4>Mikhail Andrei - Work & Education Section & References</h4>
+      <p>Available Upon Request (Work & Education Section)</p>
+    </div>
+  </div>
+  <div class="column Reference">
+    <div class="content">
+    <img src="References03.jpg" alt="Reference" style="width:100%">
+      <h4>Clifford June - Work & Education Section & References</h4>
+      <p>Available Upon Request (Work & Education Section)</p>
+    </div>
+  </div>
+</div>
+<img src="Scfi02.jpg" alt="Space" width="100% vw" height="600">
+<div class="cardssg">
+  <strong>"Personal Portfolio Created By Mikhail Andrei & Clifford June"</strong>
+  <strong>"All Rights Reserved"</strong>
+</div>
+<span class="boo">👻</span>
+<br><br><br>
+<div class="cardssg">
+  "I really enjoy CSS's ability to alter website layouts to match different screen sizes."
+  "Cascading Style Sheets,” is used for styling and laying out webpages. It can be used to adjust content size, spacing, color and font or add decorative features, such as animations or split content into columns."
+</div>
+<br><br><br>
+<form class="fr" action="">
+	<div class="fr__face" role="img" aria-label="Straight face">
+		<div class="fr__face-right-eye" data-right></div>
+		<div class="fr__face-left-eye" data-left></div>
+		<div class="fr__face-mouth-lower" data-mouth-lower></div>
+		<div class="fr__face-mouth-upper" data-mouth-upper></div>
+	</div>
+	<input class="fr__input" id="face-rating" type="range" value="2.5" min="0" max="5" step="0.1">
+	<br>
+	<span class="label emoji">How Was Your Experience???</span>
+</form>
+<!-- Portfolio Grid Siempre Samboan Group, End -->
+<!-- Main Outro Siempre Samboan Group-->
+</div>
+<script>
+filterSelection("all")
+function filterSelection(c) {
+  var x, i;
+  x = document.getElementsByClassName("column");
+  if (c == "all") c = "";
+  for (i = 0; i < x.length; i++) {
+    SiempreSamboanRemove(x[i], "show");
+    if (x[i].className.indexOf(c) > -1) SiempreSamboanAdd(x[i], "show");
+  }
+}
+function SiempreSamboanAdd(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+  }
+}
+function SiempreSamboanRemove(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1);     
+    }
+  }
+  element.className = arr1.join(" ");
+}
+var btnContainer = document.getElementById("myBtnContainer");
+var btns = btnContainer.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function(){
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+window.addEventListener("mousemove", function (e) {
+	var x = e.clientX,
+		y = e.clientY;
+	document.querySelector(".boo").style.left = x + "px";
+	document.querySelector(".boo").style.top = y + "px";
+});
+window.addEventListener('click', function() {
+	document.querySelector('p').classList.add('wiggle')
+	document.querySelector('p').onanimationend = function() {
+		this.classList.remove('wiggle')
+	}
+})
+window.addEventListener("DOMContentLoaded",() => {
+	const fr = new FaceRating("#face-rating");
+});
+class FaceRating {
+	constructor(qs) {
+		this.input = document.querySelector(qs);
+		this.input?.addEventListener("input",this.update.bind(this));
+		this.face = this.input?.previousElementSibling;
+		this.update();
+	}
+	update(e) {
+		let value = this.input.defaultValue;
+		if (e) value = e.target?.value;
+		else this.input.value = value;
+		const min = this.input.min || 0;
+		const max = this.input.max || 100;
+		const percentRaw = (value - min) / (max - min) * 100;
+		const percent = +percentRaw.toFixed(2);
+		this.input?.style.setProperty("--percent",`${percent}%`);
+		const maxHue = 120;
+		const hueExtend = 30;
+		const hue = Math.round(maxHue * percent / 100);
+		let hue2 = hue - hueExtend;
+		if (hue2 < 0) hue2 += 360;
+		const hues = [hue,hue2];
+		hues.forEach((h,i) => {
+			this.face?.style.setProperty(`--face-hue${i + 1}`,h);
+		});
+		this.input?.style.setProperty("--input-hue",hue);
+		// emotions
+		const duration = 1;
+		const delay = -(duration * 0.99) * percent / 100;
+		const parts = ["right","left","mouth-lower","mouth-upper"];
+		parts.forEach(p => {
+			const el = this.face?.querySelector(`[data-${p}]`);
+			el?.style.setProperty(`--delay-${p}`,`${delay}s`);
+		});
+		// aria label
+		const faces = [
+			"Sad face",
+			"Slightly sad face",
+			"Straight face",
+			"Slightly happy face",
+			"Happy face"
+		];
+		let faceIndex = Math.floor(faces.length * percent / 100);
+		if (faceIndex === faces.length) --faceIndex;
+		this.face?.setAttribute("aria-label",faces[faceIndex]);
+	}
+}
+</script>
+</body>
+</html>
